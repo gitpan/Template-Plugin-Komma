@@ -1,5 +1,10 @@
 Revision history for Perl extension Template::Plugin::Komma.
 
+0.05
+ - bugfix: PREREQ_PM set to Template V2.0
+ - bugfix: t/03_komma2 failed on some systems (sprintf does not round)
+ - thanks to the CPAN-testers
+
 0.04
  - bugfix: negative numbers were converted to positive numbers
  - more tests

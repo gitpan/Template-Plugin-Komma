@@ -1,5 +1,5 @@
 package Template::Plugin::Komma;
-$VERSION = 0.04;
+$VERSION = 0.05;
 
 use strict;
 use base 'Template::Plugin';
@@ -60,8 +60,19 @@ sub komma2 {
     # this is broken on some systems
     #_komma(sprintf('%.2f', $number));
 
-    $number = sprintf('%.0f', ($number+0) * 100) / 100;
-    return _komma(sprintf('%.2f', $number));
+    # round two digits after the dot
+    my $round = ($number < 0) ? -0.5 : 0.5;
+    $number   = int($number * 100 + $round);
+
+    # eventually fill with zeros
+    while (length $number < 3) {
+        $number = "0".$number;
+    }
+
+    # insert dot
+    $number =~ s/(\d\d)$/\.$1/;
+
+    return _komma($number);
 }
 
 
