@@ -1,5 +1,3 @@
-#!/usr/bin/perl -w
-
 use strict;
 use Template::Test;
 
@@ -20,25 +18,25 @@ __END__
 
 --test--
 [% USE Komma -%]
-[% 123456 | komma0 %]
+[% -123456 | komma %]
 --expect--
-123.456
+-123.456
 
 --test--
 [% USE Komma -%]
-[% 123456.789 | komma0 %]
+[% -123456.789 | komma %]
 --expect--
-123.457
+-123.456,789
 
 --test--
 [% USE Komma -%]
-[% 123456 | komma2 %]
+[% 0 | komma %]
 --expect--
-123.456,00
+0
 
 --test--
 [% USE Komma -%]
-[% 123456.789 | komma2 %]
+[% '' | komma %]
 --expect--
-123.456,79
+
 

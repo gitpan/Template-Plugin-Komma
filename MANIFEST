@@ -1,6 +1,9 @@
 Changes
-MANIFEST
+Komma.pm
 Makefile.PL
+MANIFEST
 README
-lib/Template/Plugin/Komma.pm
-t/komma.t
+t/00_compile.t
+t/01_komma.t
+t/02_komma0.t
+t/03_komma2.t

@@ -1,8 +1,9 @@
 package Template::Plugin::Komma;
-$VERSION = 0.02;
+$VERSION = 0.04;
 
 use strict;
 use base 'Template::Plugin';
+use Devel::Peek;
 
 sub new {
     my ($self, $context) = @_;
@@ -16,10 +17,19 @@ sub new {
 
 sub komma {
     my $number = shift;
-    my @number = split(/\./, $number.'');
+
+    return undef unless defined $number;
+    return '' if $number eq '';
+
+    return _komma($number+0);
+}
+
+sub _komma {
+    my $number = shift;
+    my @number = split(/\./, $number);
     my $ready  = '';
 
-    while ($number[0] =~ /(\d+)(\d{3})$/) {
+    while ($number[0] =~ /([+-]*\d+)(\d{3})$/) {
         $number[0] = $1;
         $ready     = '.'.$2.$ready;
     }
@@ -33,11 +43,25 @@ sub komma {
 }
 
 sub komma0 {
-    komma(sprintf('%.0f', shift));
+    my $number = shift;
+
+    return undef unless defined $number;
+    return '' if $number eq '';
+
+    return _komma(sprintf('%.0f', $number+0));
 }
 
 sub komma2 {
-    komma(sprintf('%.2f', shift));
+    my $number = shift;
+
+    return undef unless defined $number;
+    return '' if $number eq '';
+
+    # this is broken on some systems
+    #_komma(sprintf('%.2f', $number));
+
+    $number = sprintf('%.0f', ($number+0) * 100) / 100;
+    return _komma(sprintf('%.2f', $number));
 }
 
 
