@@ -1,0 +1,6 @@
+Changes
+MANIFEST
+Makefile.PL
+README
+lib/Template/Plugin/Komma.pm
+t/komma.t

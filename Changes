@@ -1,0 +1,5 @@
+Revision history for Perl extension Template::Plugin::Komma
+
+0.02  - komma0 and komma2 use sprintf and let komma do the work
+
+0.01  - first version, inspired by Template::Plugin::Comma
