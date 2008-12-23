@@ -1,11 +1,18 @@
+
+use strict;
+use warnings;
+
 use ExtUtils::MakeMaker;
-# See lib/ExtUtils/MakeMaker.pm for details of how to influence
-# the contents of the Makefile that is written.
+
 WriteMakefile(
-    'NAME'		=> 'Template::Plugin::Komma',
-    'VERSION_FROM'	=> 'Komma.pm',
-    'PREREQ_PM'		=> {Template => 2.0,
-                       },
-    ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
-      (AUTHOR     => 'Uwe Voelker <uwe.voelker@gmx.de>') : ()),
+  DISTNAME  => 'Template-Plugin-Komma',
+  NAME      => 'Template::Plugin::Komma',
+  AUTHOR    => 'Uwe\ Voelker\ \<uwe\.voelker\@gmx\.de\>',
+  ABSTRACT  => 'TT2 plugin to commify numbers (German format)',
+  VERSION   => '0.06',
+  EXE_FILES => [ qw() ],
+  (eval { ExtUtils::MakeMaker->VERSION(6.21) } ? (LICENSE => 'perl') : ()),
+  PREREQ_PM    => {
+    "Template" => '2.0',
+  },
 );

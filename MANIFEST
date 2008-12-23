@@ -1,7 +1,9 @@
 Changes
 Komma.pm
-Makefile.PL
+LICENSE
 MANIFEST
+META.yml
+Makefile.PL
 README
 t/00_compile.t
 t/01_komma.t

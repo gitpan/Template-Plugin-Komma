@@ -1,44 +1,12 @@
-NAME
-    Template::Plugin::Komma - TT2 plugin to commify numbers (German format)
 
-SYNOPSIS
-      [% USE Komma %]
-      Prozent:   [% 12.3    | komma %] %
-      Einwohner: [% 1200000 | komma0 %]
-      Preis:     [% 44.9    | komma2 %] EUR
 
-      # Output:
-      Prozent:   12,3 %
-      Einwohner: 1.200.000
-      Preis      44,90 EUR
+This archive contains the distribution Template-Plugin-Komma, version
+0.06:
 
-DESCRIPTION
-    This plugin is the German version of Template::Plugin::Comma. It
-    installs 3 filters: "komma", "komma0" and "komma2".
+  TT2 plugin to commify numbers (German format)
 
-    "komma" outputs the number with ',' as decimal point and '.' as thousand
-    separator.
+This software is copyright (c) 2008 by Uwe Voelker.
 
-    "komma0" rounds the number to an integer and outputs the number with
-    thousend separators.
-
-    "komma2" rounds the number to 2 digits after the point
-    (Nachkommastellen).
-
-NOTE
-    The interface is a little bit different to Template::Plugin::Comma,
-    "komma" expects a number as parameter ("comma" can be feeded with a
-    whole line of text and only the numbers are converted.)
-
-AUTHOR
-    Uwe Voelker <uwe.voelker@gmx.de>
-
-    Based on Template::Plugin::Comma by Yoshiki Kurihara <kurihara@cpan.org>
-    and Tatsuhiko Miyagawa <miyagawa@bulknews.net>.
-
-    This library is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
-
-SEE ALSO
-    Template, Template::Plugin::Comma, Template::Plugin::Number::Format
+This is free software; you can redistribute it and/or modify it under
+the same terms as perl itself.
 

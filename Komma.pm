@@ -1,9 +1,16 @@
 package Template::Plugin::Komma;
-$VERSION = 0.05;
+our $VERSION = '0.06';
+
 
 use strict;
+use warnings;
+
 use base 'Template::Plugin';
-use Devel::Peek;
+
+
+# taken from Math::Round
+my $half = 0.50000000000008;
+
 
 sub new {
     my ($self, $context) = @_;
@@ -48,7 +55,8 @@ sub komma0 {
     return undef unless defined $number;
     return '' if $number eq '';
 
-    return _komma(sprintf('%.0f', $number+0));
+    my $round = ($number < 0) ? -$half : $half;
+    return _komma(int($number + $round));
 }
 
 sub komma2 {
@@ -57,11 +65,8 @@ sub komma2 {
     return undef unless defined $number;
     return '' if $number eq '';
 
-    # this is broken on some systems
-    #_komma(sprintf('%.2f', $number));
-
     # round two digits after the dot
-    my $round = ($number < 0) ? -0.5 : 0.5;
+    my $round = ($number < 0) ? -$half : $half;
     $number   = int($number * 100 + $round);
 
     # eventually fill with zeros
@@ -81,6 +86,10 @@ __END__
 
 =head1 NAME
 
+
+=head1 VERSION
+
+version 0.06
 Template::Plugin::Komma - TT2 plugin to commify numbers
 (German format)
 
@@ -108,7 +117,7 @@ C<komma0> rounds the number to an integer and outputs the number
 with thousend separators.
 
 C<komma2> rounds the number to 2 digits after the point
-(Nachkommastellen).
+(Nachkommastellen). This is especially useful for currency amounts.
 
 =head1 NOTE
 
