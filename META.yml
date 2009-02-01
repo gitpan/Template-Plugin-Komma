@@ -7,4 +7,4 @@ license: perl
 name: Template-Plugin-Komma
 requires: 
   Template: 2.0
-version: 0.06
+version: 0.07

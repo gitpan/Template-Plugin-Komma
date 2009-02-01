@@ -1,5 +1,5 @@
 package Template::Plugin::Komma;
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 
 use strict;
@@ -86,12 +86,11 @@ __END__
 
 =head1 NAME
 
+Template::Plugin::Komma - TT2 plugin to commify numbers (German format)
 
 =head1 VERSION
 
-version 0.06
-Template::Plugin::Komma - TT2 plugin to commify numbers
-(German format)
+version 0.07
 
 =head1 SYNOPSIS
 
